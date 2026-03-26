@@ -1,0 +1,109 @@
+# AI音频Agent配置文件
+
+# 应用配置
+app:
+  name: "AI音频Agent"
+  version: "1.0.0"
+  debug: true
+
+# 服务器配置
+server:
+  host: "0.0.0.0"
+  port: 5000
+  workers: 4
+
+# API配置
+api:
+  openai:
+    api_key: "your-openai-api-key-here"
+    model: "gpt-4"
+    temperature: 0.7
+    max_tokens: 2000
+
+# 音频配置
+audio:
+  sample_rate: 44100
+  channels: 1
+  bit_depth: 16
+  format: "wav"
+
+# 模型配置
+models:
+  rvc:
+    model_path: "models/rvc/"
+    device: "cuda"  # cuda 或 cpu
+    index_rate: 0.75
+    filter_radius: 3
+    resample_sr: 0
+    rms_mix_rate: 0.25
+
+  tts:
+    model_path: "models/tts/"
+    device: "cuda"
+    speaker: "default"
+
+# 存储配置
+storage:
+  voices_dir: "data/voices/"
+  audio_dir: "data/audio/"
+  output_dir: "data/output/"
+  max_voices: 100
+  max_audio_size: 100  # MB
+
+# Agent配置
+agent:
+  name: "AudioBot"
+  personality: "专业、友好、富有创意的音频助手"
+  max_memory_turns: 10
+  enable_learning: true
+
+# 工具配置
+tools:
+  voice_clone:
+    enabled: true
+    min_audio_length: 5  # 秒
+    max_audio_length: 60  # 秒
+
+  voice_convert:
+    enabled: true
+    default_pitch_shift: 0
+
+  pitch_adjust:
+    enabled: true
+    min_semitones: -12
+    max_semitones: 12
+
+  tts:
+    enabled: true
+    supported_emotions:
+      - happy
+      - sad
+      - angry
+      - neutral
+      - excited
+      - calm
+
+  ai_singing:
+    enabled: true
+    max_duration: 180  # 秒
+
+  emotion:
+    enabled: true
+    intensity_levels:
+      - low
+      - medium
+      - high
+
+# 日志配置
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}"
+  file: "logs/agent.log"
+  rotation: "10 MB"
+
+# 性能配置
+performance:
+  max_concurrent_tasks: 5
+  task_timeout: 300  # 秒
+  cache_enabled: true
+  cache_ttl: 3600  # 秒

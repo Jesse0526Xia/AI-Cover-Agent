@@ -1,0 +1,54 @@
+# 模型配置文件
+
+# RVC模型配置
+rvc_models:
+  default:
+    name: "RVC默认模型"
+    path: "models/rvc/default.pth"
+    index_path: "models/rvc/default.index"
+    sample_rate: 48000
+    f0_method: "rmvpe"  # harvest, crepe, rmvpe, fcpe
+    f0_up_key: 0
+
+  v2:
+    name: "RVC v2模型"
+    path: "models/rvc/v2.pth"
+    index_path: "models/rvc/v2.index"
+    sample_rate: 48000
+    f0_method: "rmvpe"
+    f0_up_key: 0
+
+# TTS模型配置
+tts_models:
+  edge:
+    name: "Edge TTS"
+    type: "edge"
+    language: "zh-CN"
+    voice: "zh-CN-XiaoxiaoNeural"
+
+  gpt_sovits:
+    name: "GPT-SoVITS"
+    type: "gpt_sovits"
+    model_path: "models/tts/gpt_sovits"
+    reference_audio: null
+
+# 音乐生成模型配置
+music_models:
+  audioldm:
+    name: "AudioLDM"
+    type: "audioldm"
+    model_path: "models/music/audioldm"
+    duration: 30
+
+# 情感模型配置
+emotion_models:
+  default:
+    name: "默认情感模型"
+    embedding_dim: 256
+    supported_emotions:
+      - happy: "开心"
+      - sad: "悲伤"
+      - angry: "愤怒"
+      - neutral: "平静"
+      - excited: "兴奋"
+      - calm: "冷静"

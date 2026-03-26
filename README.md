@@ -181,10 +181,6 @@ demo/
 
 欢迎提交Issue和Pull Request！
 
-## 许可证
-
-MIT License
-
 ## 联系方式
 
 如有问题，请提交Issue或联系开发者。
